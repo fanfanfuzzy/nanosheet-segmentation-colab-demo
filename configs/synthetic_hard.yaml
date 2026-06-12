@@ -1,0 +1,12 @@
+# Hard difficulty: low contrast, high noise, dense overlap
+image_size: 512
+num_nanosheets_min: 10
+num_nanosheets_max: 25
+nanosheet_size_min: 30
+nanosheet_size_max: 120
+overlap_probability: 0.5
+noise_sigma: 30
+contrast_range: [0.15, 0.5]
+blur_sigma: 1.5
+background_intensity: 160
+nanosheet_intensity_range: [80, 150]

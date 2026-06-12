@@ -1,0 +1,7 @@
+numpy
+matplotlib
+opencv-python-headless
+pandas
+scikit-image
+pyyaml
+tqdm

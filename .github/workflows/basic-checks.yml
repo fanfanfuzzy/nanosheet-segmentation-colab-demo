@@ -1,0 +1,34 @@
+name: Basic repository checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  basic-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check forbidden private data paths
+        run: |
+          test ! -d real_data
+          test ! -d private_data
+          test ! -d experimental_data
+          test ! -d raw_data
+          test ! -d annotations_real
+          test ! -d weights_private
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Check Python imports compile
+        run: |
+          python -m compileall src
+
+      - name: Verify notebook exists
+        run: |
+          test -f notebooks/nanosheet_segmentation_demo.ipynb

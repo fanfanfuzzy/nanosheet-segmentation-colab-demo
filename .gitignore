@@ -1,0 +1,34 @@
+# outputs
+outputs/*
+!outputs/.gitkeep
+
+# local data
+data/
+real_data/
+private_data/
+experimental_data/
+raw_data/
+annotations_real/
+weights_private/
+
+# model artifacts
+*.pt
+*.pth
+*.onnx
+*.pkl
+
+# system
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# virtual environments
+.venv/
+venv/
+env/
