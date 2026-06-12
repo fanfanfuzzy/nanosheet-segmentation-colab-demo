@@ -24,9 +24,15 @@ This demo compares two approaches to instance segmentation:
 
 2. **Trained segmentation model** — Uses predictions from a model trained on synthetic nanosheet data. The key message: *a model trained on task-specific synthetic data can improve instance-level segmentation performance compared to a training-free baseline.*
 
+The dedicated comparison script (`src/compare_zero_shot_vs_trained.py`) evaluates both methods on the same synthetic test set and generates a side-by-side bar chart, making the performance difference immediately visible.
+
 ### Educational Message
 
 > A zero-shot segmentation baseline can produce useful masks without training, but a model trained on task-specific synthetic data can improve instance-level segmentation performance.
+
+### Note on Real Data / 実データに関する注意
+
+In real research, models trained on synthetic data may perform differently on experimental images. This gap is called **sim2real gap**. This public demo does not include real experimental data — it uses synthetic data to demonstrate the evaluation workflow.
 
 ## Quick Start / はじめかた
 
@@ -102,8 +108,10 @@ nanosheet-segmentation-colab-demo/
 │   ├── generate_synthetic_nanosheets.py
 │   ├── visualize_dataset.py
 │   ├── sam_zero_shot_baseline.py
+│   ├── generate_trained_predictions.py
 │   ├── evaluate_predictions.py
 │   ├── compare_metrics.py
+│   ├── compare_zero_shot_vs_trained.py
 │   └── utils/
 │       ├── masks.py
 │       ├── metrics.py
