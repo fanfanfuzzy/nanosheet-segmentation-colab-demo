@@ -120,6 +120,9 @@ def main():
             sys.exit(1)
 
     n_images = len(list(gt_dir.glob("label_map_*.npy")))
+    if n_images == 0:
+        print("Error: No label maps found in GT directory.")
+        sys.exit(1)
     print(f"Comparing zero-shot vs trained on {n_images} images...")
 
     # Evaluate both methods
