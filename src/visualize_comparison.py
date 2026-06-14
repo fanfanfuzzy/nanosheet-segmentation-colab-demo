@@ -121,7 +121,7 @@ def main():
         axes[1].set_title(f"Ground Truth ({len(gt_masks)})", fontsize=12)
 
         axes[2].imshow(overlay_masks_on_image(image, zs_masks))
-        axes[2].set_title(f"Zero-shot ({len(zs_masks)})", fontsize=12)
+        axes[2].set_title(f"SAM ({len(zs_masks)})", fontsize=12)
 
         if has_pretrained:
             axes[3].imshow(overlay_masks_on_image(image, pre_masks))
@@ -180,7 +180,7 @@ def main():
             if row == 0:
                 axes[row, 0].set_title("Original", fontsize=12)
                 axes[row, 1].set_title("Ground Truth", fontsize=12)
-                axes[row, 2].set_title("Zero-shot", fontsize=12)
+                axes[row, 2].set_title("SAM", fontsize=12)
                 if has_pretrained:
                     axes[row, 3].set_title("YOLO pretrained", fontsize=12)
                     axes[row, 4].set_title("YOLO trained", fontsize=12)
@@ -191,7 +191,7 @@ def main():
                 axes[row, col].set_xticks([])
                 axes[row, col].set_yticks([])
 
-        fig.suptitle("Per-Image Comparison: GT vs Zero-shot vs YOLO-seg",
+        fig.suptitle("Per-Image Comparison: GT vs SAM vs YOLO-seg",
                      fontsize=16, fontweight="bold")
         plt.tight_layout()
         summary_path = output_dir / "comparison_summary.png"

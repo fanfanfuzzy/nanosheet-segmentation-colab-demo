@@ -76,11 +76,11 @@ python src/compare_zero_shot_vs_trained.py \
 | 1–2 | Clone repository & install dependencies |
 | 3 | Generate synthetic nanosheet images |
 | 4 | Visualize dataset and ground-truth masks |
-| 5 | Run zero-shot segmentation baseline on test images |
+| 5 | Load SAM (ViT-H) AMG predictions on test images |
 | 6 | Load pre-computed YOLO-seg predictions |
 | 7 | Evaluate both methods with instance-level metrics |
 | 8 | Compare metrics with bar chart |
-| 9 | Per-image visual comparison (GT vs zero-shot vs YOLO-seg) |
+| 9 | Per-image visual comparison (GT vs SAM vs YOLO-seg) |
 | 10 | (Optional) Short YOLO training demo |
 
 ## YOLO-seg Training Details

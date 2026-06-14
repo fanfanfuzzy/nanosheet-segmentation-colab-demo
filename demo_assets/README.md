@@ -11,9 +11,10 @@ Pre-computed data for the Colab notebook demo. All data is synthetic — no real
 Ground-truth instance label maps (`label_map_XXXX.npy`, int32) for the 10 test images.
 Each pixel value is an instance ID (0 = background).
 
-### `predictions_sam_baseline/`
-Zero-shot baseline predictions (adaptive thresholding + morphology + connected components).
-Each image has a subdirectory with individual mask files and a combined label map.
+### `predictions_sam/`
+SAM (Segment Anything Model, ViT-H) predictions using Automatic Mask Generator (AMG) mode.
+Saved as flat `label_map_XXXX.npy` files. Background masks (>50% of image area) are filtered out.
+SAM is a foundation model — no task-specific fine-tuning was performed.
 
 ### `predictions_yolo_pretrained/`
 YOLO-seg (YOLOv11s-seg) predictions using the **base pretrained model** (COCO weights only,
