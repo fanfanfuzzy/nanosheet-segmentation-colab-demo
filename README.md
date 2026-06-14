@@ -24,13 +24,13 @@ This demo compares two approaches to instance segmentation:
 
 1. **Zero-shot segmentation baseline** — Uses image processing heuristics (adaptive thresholding, morphological operations, connected components) to produce candidate masks **without any training**. This represents the idea behind ViT-based models like SAM (Segment Anything Model).
 
-2. **YOLO-seg (trained on synthetic data)** — Uses YOLOv11s-seg trained on 50 synthetic nanosheet images with instance-level polygon labels. The pre-trained model and inference results are included in the repository. The key message: *a model trained on task-specific synthetic data can significantly improve instance-level segmentation performance compared to a training-free baseline.*
+2. **YOLO-seg (trained on synthetic data)** — Uses YOLOv11s-seg trained on 100 synthetic nanosheet images with instance-level polygon labels. The pre-trained model and inference results are included in the repository. The key message: *a model trained on task-specific synthetic data can significantly improve instance-level segmentation performance compared to a training-free baseline.*
 
 The dedicated comparison script (`src/compare_zero_shot_vs_trained.py`) evaluates both methods on the same 10 synthetic test images and generates a side-by-side bar chart, making the performance difference immediately visible.
 
 ### Educational Message
 
-> A zero-shot segmentation baseline can produce useful masks without training, but a model trained on task-specific synthetic data (even just 50 images) can significantly improve instance-level segmentation performance.
+> A zero-shot segmentation baseline can produce useful masks without training, but a model trained on task-specific synthetic data (100 images) can significantly improve instance-level segmentation performance.
 
 ### Note on Real Data / 実データに関する注意
 
@@ -87,10 +87,10 @@ python src/compare_zero_shot_vs_trained.py \
 The included model (`models/yolo11s-seg-nanosheet.pt`) was trained as follows:
 
 - **Base model:** YOLOv11s-seg (Ultralytics)
-- **Training data:** 50 synthetic nanosheet images (512×512, Beer-Lambert model)
+- **Training data:** 100 synthetic nanosheet images (512×512, Beer-Lambert model)
 - **Validation data:** 10 synthetic test images
-- **Training:** 150 epochs max, early stopping (patience=30), stopped at epoch 40
-- **Best validation Mask mAP50:** 0.945
+- **Training:** 150 epochs max, early stopping (patience=30), stopped at epoch 83 (best epoch 53)
+- **Best validation Mask mAP50:** 0.983
 - **GPU:** NVIDIA RTX A6000
 
 Training and inference scripts are available in [2603-nanosheet-overlap-segmentation](https://github.com/fanfanfuzzy/2603-nanosheet-overlap-segmentation) (branch: `devin/colab-demo-yolo-pipeline`).

@@ -17,8 +17,8 @@ Each image has a subdirectory with individual mask files and a combined label ma
 
 ### `predictions_yolo_trained/`
 YOLO-seg (YOLOv11s-seg) predictions on the 10 test images.
-Saved as flat `label_map_XXXX.npy` files. The model was trained on 50 synthetic nanosheet images
-for 150 epochs (early stopped at epoch 40) on an NVIDIA RTX A6000.
+Saved as flat `label_map_XXXX.npy` files. The model was trained on 100 synthetic nanosheet images
+for 150 epochs (early stopped at epoch 83, best epoch 53) on an NVIDIA RTX A6000.
 
 ## Data Policy
 
