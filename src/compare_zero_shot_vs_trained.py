@@ -10,7 +10,7 @@ This script provides an end-to-end comparison workflow:
 Usage:
     python src/compare_zero_shot_vs_trained.py \
         --gt-dir outputs/synthetic_demo/masks \
-        --zero-shot-dir outputs/predictions_sam_baseline \
+        --zero-shot-dir demo_assets/predictions_sam \
         --trained-dir outputs/predictions_yolo_trained \
         --output-csv outputs/comparison_metrics.csv \
         --output-fig outputs/comparison_barplot.png

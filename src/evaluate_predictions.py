@@ -5,8 +5,8 @@ Computes instance-level metrics and saves results to CSV.
 Usage:
     python src/evaluate_predictions.py \
         --gt-dir outputs/synthetic_demo/masks \
-        --pred-dir outputs/predictions_sam_baseline \
-        --method-name sam_zero_shot \
+        --pred-dir demo_assets/predictions_sam \
+        --method-name sam_vit_h \
         --output outputs/metrics_sam.csv
 """
 

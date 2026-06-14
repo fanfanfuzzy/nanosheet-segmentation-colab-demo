@@ -60,10 +60,10 @@ python src/visualize_dataset.py \
     --input-dir outputs/synthetic_demo \
     --output-dir outputs/figures
 
-# Compare zero-shot vs YOLO-seg on shared test images
+# Compare SAM vs YOLO-seg on shared test images
 python src/compare_zero_shot_vs_trained.py \
     --gt-dir demo_assets/ground_truth \
-    --zero-shot-dir demo_assets/predictions_sam_baseline \
+    --zero-shot-dir demo_assets/predictions_sam \
     --trained-dir demo_assets/predictions_yolo_trained \
     --output-csv outputs/comparison_metrics.csv \
     --output-fig outputs/comparison_barplot.png
@@ -137,8 +137,9 @@ nanosheet-segmentation-colab-demo/
 │   ├── README.md
 │   ├── test_images/                 (10 synthetic test images)
 │   ├── ground_truth/                (GT label maps for test images)
-│   ├── predictions_sam_baseline/    (zero-shot baseline results)
-│   └── predictions_yolo_trained/    (YOLO-seg inference results)
+│   ├── predictions_sam/             (SAM ViT-H AMG results)
+│   ├── predictions_yolo_pretrained/  (YOLO-seg base model, no fine-tuning)
+│   └── predictions_yolo_trained/    (YOLO-seg trained on synthetic data)
 ├── outputs/                         (git-ignored except .gitkeep)
 └── docs/
     ├── workshop_plan.md

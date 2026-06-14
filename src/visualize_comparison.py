@@ -12,7 +12,7 @@ Usage:
     python src/visualize_comparison.py \
         --image-dir demo_assets/test_images \
         --gt-dir demo_assets/ground_truth \
-        --zero-shot-dir demo_assets/predictions_sam_baseline \
+        --zero-shot-dir demo_assets/predictions_sam \
         --pretrained-dir demo_assets/predictions_yolo_pretrained \
         --trained-dir demo_assets/predictions_yolo_trained \
         --output-dir outputs/comparison_visual
