@@ -1,0 +1,8 @@
+# YOLO-seg dataset for short training demo (Step 8)
+# 8 train + 2 val images from "easy" difficulty synthetic nanosheets
+path: demo_assets/yolo_dataset
+train: train/images
+val: val/images
+
+names:
+  0: nanosheet
