@@ -15,6 +15,10 @@ Each pixel value is an instance ID (0 = background).
 Zero-shot baseline predictions (adaptive thresholding + morphology + connected components).
 Each image has a subdirectory with individual mask files and a combined label map.
 
+### `predictions_yolo_pretrained/`
+YOLO-seg (YOLOv11s-seg) predictions using the **base pretrained model** (COCO weights only,
+no fine-tuning on nanosheet data). This serves as a baseline showing what a generic model detects.
+
 ### `predictions_yolo_trained/`
 YOLO-seg (YOLOv11s-seg) predictions on the 10 test images.
 Saved as flat `label_map_XXXX.npy` files. The model was trained on 100 synthetic nanosheet images

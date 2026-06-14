@@ -80,7 +80,8 @@ python src/compare_zero_shot_vs_trained.py \
 | 6 | Load pre-computed YOLO-seg predictions |
 | 7 | Evaluate both methods with instance-level metrics |
 | 8 | Compare metrics with bar chart |
-| 9 | (Optional) Short YOLO training demo |
+| 9 | Per-image visual comparison (GT vs zero-shot vs YOLO-seg) |
+| 10 | (Optional) Short YOLO training demo |
 
 ## YOLO-seg Training Details
 
