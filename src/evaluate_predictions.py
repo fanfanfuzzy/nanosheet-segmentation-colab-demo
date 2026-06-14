@@ -45,19 +45,24 @@ def load_gt_masks_for_image(masks_dir: Path, image_idx: int) -> list[np.ndarray]
     return []
 
 
-def load_pred_masks_for_image(pred_dir: Path, image_stem: str) -> list[np.ndarray]:
+def load_pred_masks_for_image(pred_dir: Path, image_stem: str,
+                              idx: int = 0) -> list[np.ndarray]:
     """Load predicted instance masks for a specific image."""
     instance_dir = pred_dir / image_stem
     if instance_dir.exists():
         # Load individual mask files
         mask_files = sorted(instance_dir.glob("mask_*.npy"))
-        return [np.load(str(f)) for f in mask_files]
+        if mask_files:
+            return [np.load(str(f)) for f in mask_files]
+        # Check for label_map inside directory
+        lm = instance_dir / "label_map.npy"
+        if lm.exists():
+            return label_map_to_instance_masks(np.load(str(lm)))
 
-    # Fallback: load from label map
-    label_path = pred_dir / image_stem / "label_map.npy"
+    # Fallback: flat label_map file (e.g. from YOLO-seg inference)
+    label_path = pred_dir / f"label_map_{idx:04d}.npy"
     if label_path.exists():
-        label_map = np.load(str(label_path))
-        return label_map_to_instance_masks(label_map)
+        return label_map_to_instance_masks(np.load(str(label_path)))
 
     return []
 
@@ -106,7 +111,7 @@ def main():
         image_stem = f"image_{idx:04d}"
 
         gt_masks = load_gt_masks_for_image(gt_dir, idx)
-        pred_masks = load_pred_masks_for_image(pred_dir, image_stem)
+        pred_masks = load_pred_masks_for_image(pred_dir, image_stem, idx)
 
         # Compute metrics
         rec = instance_recall(gt_masks, pred_masks, args.iou_threshold)

@@ -11,11 +11,12 @@ raw_data/
 annotations_real/
 weights_private/
 
-# model artifacts
-*.pt
+# model artifacts (private weights only)
 *.pth
 *.onnx
 *.pkl
+# Allow public synthetic-trained model weights
+!models/*.pt
 
 # system
 .DS_Store
